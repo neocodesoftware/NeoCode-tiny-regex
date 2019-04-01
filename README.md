@@ -14,30 +14,34 @@
 
 
 # NeoCode-tiny-regex
-An incomplete port of [tiny-regex-c](https://github.com/kokke/tiny-regex-c) to native FileMaker custom functions
+An incomplete application of full regex support on native FileMaker custom functions. Implementation based on and altered from [tiny-regex-c](https://github.com/kokke/tiny-regex-c).
 
 ### Supported regex-operators
 The following features / regex-operators are supported by this library.
 
-NOTE: inverted character classes are buggy - see the test harness for concrete examples.
-
-
-  -  `.`         Dot, matches any character
-  -  `^`         Start anchor, matches beginning of string
-  -  `$`         End anchor, matches end of string
-  -  `*`         Asterisk, match zero or more (greedy)
-  -  `+`         Plus, match one or more (greedy)
-  -  `?`         Question, match zero or one (non-greedy)
-  -  `[abc]`     Character class, match if one of {'a', 'b', 'c'}
-  -  `[^abc]`   Inverted class, match if NOT one of {'a', 'b', 'c'}
-  -  ~~`[a-zA-Z]` Character ranges, the character set of the ranges { a-z | A-Z }~~
-  -  ~~`(word)` Matches'word' as a group~~ 
-  -  ~~`a{3}`  Matches 'a' 3 times~~
-  -  ~~`a{3,}`  Matches 'a' 3 times or more (greedy)~~
-  -  ~~`a{3,5}`  Matches 'a' 3-5 times (greedy)~~
+  -  `.`         Dot; matches any character
+  -  `^`         Start anchor; matches beginning of string
+  -  `$`         End anchor; matches end of string
+  -  `*`         Asterisk; match zero or more (greedy)
+  -  `+`         Plus; match one or more (greedy)
+  -  `?`         Question; match zero or one (non-greedy)
+  -  `[abc]`     Character class; match one of {'a', 'b', 'c'}
+  -  `[^abc]`   Inverted class; match one of NOT {'a', 'b', 'c'}
+  -  ~~`[a-zA-Z]` Character range(s); match character set of ranges { a-z | A-Z }~~
+  -  ~~`[^a-zA-Z]` Inverted range(s); match character set of NOT ranges { a-z | A-Z }~~
+  -  `(word)` Matches'word' as a group
+  -  ~~`(word|match)` Matches 'word' or 'match' as a group of characters~~
+  -  `a{3}`  Matches 'a' 3 times
+  -  `a{3,}`  Matches 'a' 3 times or more (greedy)
+  -  `a{3,5}`  Matches 'a' 3-5 times (greedy)
   -  `\s`       Whitespace, \t \f \r \n \v and spaces
   -  `\S`       Non-whitespace
   -  `\w`       Alphanumeric, [a-zA-Z0-9_]
   -  `\W`       Non-alphanumeric
   -  `\d`       Digits, [0-9]
   -  `\D`       Non-digits
+  -  `\\`       Backslash
+  -  `\t \f \r \f \v`       All escaped space characters (not tested)
+  -  `\[ \] \( \) \{ \}`       All escaped grouping characters (not tested)
+  -  ~~`\^ \- \| \`       All escaped in-group characters within grouping chars~~
+  -  `\. \^ \$ \* \+ \?`       All escaped special characters outside grouping chars (not tested)
