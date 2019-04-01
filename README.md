@@ -14,7 +14,7 @@
 
 
 # NeoCode-tiny-regex
-An incomplete port of [tiny-regex-c](https://github.com/kokke/tiny-regex-c) to native FileMaker custom functions
+An incomplete regex implementation on native FileMaker custom functions
 
 ### Supported regex-operators
 The following features / regex-operators are supported by this library.
